@@ -40,6 +40,7 @@ object MainKt {
             val sevenDaysIncidence = week.data.`08115`.weekIncidence.format(1);
             val fiveDaysListed = this.history
                 .sortedByDescending { it.date }
+                .drop(1)
                 .map { Pair<String, Double>(formatter.format(Instant.parse(it.date)), it.weekIncidence) }
                 .joinToString("\n") { "${it.first} ${it.second.format(1)}" }
             return "Inzidenz-Report\n7-Tage: $sevenDaysIncidence\n$fiveDaysListed"
@@ -55,7 +56,7 @@ object MainKt {
     }
 
     private fun getIncidenceHistory(): IncidenceHistoryResponse {
-        val url = "https://api.corona-zahlen.org/districts/08115/history/incidence/5"
+        val url = "https://api.corona-zahlen.org/districts/08115/history/incidence/6"
         val (_, _, result) = url
             .httpGet()
             .responseObject<IncidenceHistoryResponse>()
