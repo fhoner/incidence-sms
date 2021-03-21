@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "de.mvoe"
-version = "1.0-SNAPSHOT"
+version = "0.1"
 
 repositories {
     mavenCentral()
@@ -12,7 +12,6 @@ repositories {
 
 dependencies {
     implementation(kotlin("stdlib"))
-    implementation("org.whispersystems:signal-service-java:2.15.3")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.0.1")
     implementation("com.github.kittinunf.fuel:fuel:2.3.1")
     implementation("com.github.kittinunf.fuel:fuel-kotlinx-serialization:2.3.1")
@@ -20,7 +19,7 @@ dependencies {
 
 tasks.withType<Jar> {
     manifest {
-        attributes["Main-Class"] = "MainKt"
+        attributes["Main-Class"] = "de.mvoe.incidencesms.MainKt"
     }
 
     from(sourceSets.main.get().output)

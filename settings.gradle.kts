@@ -1,2 +1,2 @@
-rootProject.name = "inzidenz-signal"
+rootProject.name = "inzidenz-sms"
 
